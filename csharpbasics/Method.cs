@@ -57,7 +57,7 @@ class MethodTeacher {
 }
 
 public class MethodTester{
-    static void Main(){
+    static void Mains(){
         
         MethodTeacher methodTeacher = new MethodTeacher();
         int[] numbers = {12,26,35,65,45,25,66,35,25,64,68};
