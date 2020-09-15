@@ -21,8 +21,8 @@ class ModifierDemo {
         //can't be access as it is by default private
         //obj1.DoSomething() 
 
-        Person newPerson = new Person();
-        newPerson.name = "Rajesh";
+        // Person newPerson = new Person();
+        // newPerson.name = "Rajesh";
     }
 
     void DoAnotherThing(){
