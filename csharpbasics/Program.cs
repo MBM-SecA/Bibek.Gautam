@@ -33,8 +33,9 @@ class Program{
         //         object k = 36521.1; //the  object type can take any value
         //         //classes
 
-        Collections collections = new Collections();
-        collections.LearnDictionary();
+       FileIO  fileInfo = new FileIO();
+       fileInfo.LearnDirectories();
+       
 
 
 
