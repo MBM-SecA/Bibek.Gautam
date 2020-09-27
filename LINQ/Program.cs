@@ -21,6 +21,8 @@ namespace LINQ
             //Using query syntax - query expression
             var numbersGreaterThanFifty = from num in numbers where num > 50 select num;
 
+            
+
             string[] names = { "Ram", "Ed", "James", "Ronald", "RD", "Ramesh" };
             var initialR = names.Where(x => x.Length > 3 && x[0] == 'R');
 
@@ -28,35 +30,47 @@ namespace LINQ
                            where name.Length > 3 && name.StartsWith("R")
                            select name;
 
+            //Projections
+            var result5 = numbers.Select(x => x * x);
 
+            //var result5 = from num in numbers select num * num;
 
-            var countries = Country.GetCountries();
+           
+            //ordering the numbers in collection
+            var result6 = from num in numbers
+                            orderby num ascending 
+                            select num;
+            
+            
 
-            var asianCountries = from country in countries where country.Continent == "Asia" select country;
+            // var result7 = from name in names
+            //                 orderby name descending
+            //                 select name;
 
-            //add 20 countries
-            // lisst countries in Europe thwt have population less than 100k
+            //partitioning  
+            var result8 = numbers.Skip(5).Take(5);
 
-            var euroNations = from country in countries where country.Continent == "Europe" && country.Population < 100000 select country;
+            //find even numbers in the collection
+            var result9 = numbers.Any(x => x % 2 == 0); //return type: boolean
 
-            Console.WriteLine("European nations with population less than 100k: ");
+            //check if all the numbers are even in the collection
+            var result10 = numbers.All(x => x % 2 == 0); //return type; boolean
 
+            //check for a particular item in the  collection
+            var result11 = numbers.Contains(34); //return type : boolean
 
-            foreach (var country in euroNations)
-            {
-                Console.WriteLine(country.Name);
+            //generating data
+
+            var result12 = Enumerable.Range(1, 1000);
+            var result13 = Enumerable.Repeat("Hello World!", 10) ;
+
+            //print
+             foreach (var num in result13){
+                Console.WriteLine(num);
             }
 
-            //list countries in Asia which are not ever invaded
-            var asianNations = from country in countries where country.Continent == "Asia" && country.IndependenceDay == default select country;
 
-            Console.WriteLine("Asian countries that have never been invaded: ");
-
-            foreach (var country in asianNations)
-            {
-                Console.WriteLine(country.Name);
-            }
-
+            
 
 
 
