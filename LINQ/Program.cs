@@ -21,7 +21,7 @@ namespace LINQ
             //Using query syntax - query expression
             var numbersGreaterThanFifty = from num in numbers where num > 50 select num;
 
-            
+
 
             string[] names = { "Ram", "Ed", "James", "Ronald", "RD", "Ramesh" };
             var initialR = names.Where(x => x.Length > 3 && x[0] == 'R');
@@ -35,13 +35,13 @@ namespace LINQ
 
             //var result5 = from num in numbers select num * num;
 
-           
+
             //ordering the numbers in collection
             var result6 = from num in numbers
-                            orderby num ascending 
-                            select num;
-            
-            
+                          orderby num ascending
+                          select num;
+
+
 
             // var result7 = from name in names
             //                 orderby name descending
@@ -62,15 +62,29 @@ namespace LINQ
             //generating data
 
             var result12 = Enumerable.Range(1, 1000);
-            var result13 = Enumerable.Repeat("Hello World!", 10) ;
+            var result13 = Enumerable.Repeat("Hello World!", 10);
 
+
+            var countryData = Country.GetCountries();
+            
+            //HW: Is there any african country in your country collection
+            var africanNation = countryData.Any(x => x.Continent == "Africa");
+            //Console.WriteLine(africanNation);
+            //HW: Print first two largest asian countries
+            var x = from country in countryData
+                    where country.Continent == "Asia"
+                    orderby country.Area descending
+                    select country;
+
+            var largestAsianNations = x.Take(2);
             //print
-             foreach (var num in result13){
-                Console.WriteLine(num);
+            foreach (var num in largestAsianNations)
+            {
+                Console.WriteLine($"Country: {num.Name} ; Area: {num.Area}");
             }
 
 
-            
+
 
 
 
