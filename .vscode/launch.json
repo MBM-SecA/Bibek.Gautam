@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/csharpbasics/bin/Debug/netcoreapp3.1/csharpbasics.dll",
+            "program": "${workspaceFolder}/LINQ/bin/Debug/netcoreapp3.1/LINQ.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/csharpbasics",
+            "cwd": "${workspaceFolder}/LINQ",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

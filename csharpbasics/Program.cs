@@ -1,8 +1,10 @@
 ﻿
 using System;
-using LearnCollections;
+using System.IO;
+using System.Linq;
 
-class Program{
+class Program
+{
     static void Main(string[] args)
     {
         // //Data Types in c
@@ -15,7 +17,7 @@ class Program{
         //                 short b = 254; //16 bits
         //                 int c= 325152; //32 bits
         //                 long d = 1251654212;//64 bits
-                    
+
         //             //1.1.2 Floating Point Numbers
         //                 float e = 2345.43f;
         //                 double f = 2135.123546; //By default, the compiler recognizes it as double
@@ -23,19 +25,25 @@ class Program{
 
         //         //1.2 Character
         //             char h ='c';
-                
+
         //         //1.3 Boolean
         //             bool i = true;
-            
+
         //     //2. Reference Type
 
         //         string j = "I am a \"string\"";
         //         object k = 36521.1; //the  object type can take any value
         //         //classes
 
-       FileIO  fileInfo = new FileIO();
-       fileInfo.LearnDirectories();
-       
+        var countriesText = File.ReadAllText("countries.txt");
+
+        string[] countries = countriesText.Split("\r\n");
+
+        var countriesWithInitialN = countries.Select(x=> x.StartsWith("N")).Select(x=> x);
+
+        foreach( var item in countriesWithInitialN){
+            Console.WriteLine(item);
+        }
 
 
 
