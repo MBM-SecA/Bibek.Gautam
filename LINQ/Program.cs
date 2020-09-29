@@ -78,9 +78,9 @@ namespace LINQ
 
             var largestAsianNations = x.Take(2);
             //print
-            foreach (var num in largestAsianNations)
+            foreach (var nation in largestAsianNations)
             {
-                Console.WriteLine($"Country: {num.Name} ; Area: {num.Area}");
+                Console.WriteLine($"Country: {nation.Name} ; Area: {nation.Area}");
             }
 
 
