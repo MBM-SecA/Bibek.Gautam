@@ -16,14 +16,14 @@ public class EmployeeController : Controller
         return View(employees);
     }
 
-    public ActionResult Detail([FromQuery]int id)
+    public ActionResult Detail([FromQuery] int id)
     {
-        //var employees = Person.GetDetails();
-        Person employee = employees.FirstOrDefault(x=> x.Id  == id);
+
+        Person employee = db.People.Find(id);
         return View(employee);
     }
 
-    
+
     public ActionResult Add()
     {
         return View();
@@ -31,11 +31,41 @@ public class EmployeeController : Controller
 
 
     [HttpPost]
-    public ActionResult<string> Add([FromForm] Person person)
+    public ActionResult Add([FromForm] Person person)
     {
         db.People.Add(person);
         db.SaveChanges();
-        return "Record saved.";
+        return RedirectToAction(nameof(Index));
+    }
+
+    public ActionResult Edit(int id)
+    {
+        var employee = db.People.Find(id);
+        return View(employee);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Person person)
+    {
+        db.People.Attach(person);
+        db.People.Update(person);
+        db.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
+
+     public ActionResult Delete(int id)
+    {
+        var employee = db.People.Find(id);
+        return View(employee);
+    }
+
+    [HttpPost]
+    public ActionResult Delete(Person person)
+    {
+        db.People.Attach(person);
+        db.People.Remove(person);
+        db.SaveChanges();
+        return RedirectToAction(nameof(Index));
     }
 }
 
