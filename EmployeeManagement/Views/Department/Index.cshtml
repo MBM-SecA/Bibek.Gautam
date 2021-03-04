@@ -1,0 +1,36 @@
+@model List<Department>
+
+@{
+  ViewData["Title"] = "All Departments";
+}
+<h1>All Departments</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Department Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+      <th scope="col">StartDate</th>
+
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (int i = 0; i < @Model.Count; i++)
+    {
+      <tr scope="row">
+        <td>@Model[i].Id</td>
+        <td>
+          <a href="/department/detail?id=@Model[i].Id">@Model[i].Name</a>
+        </td>
+        <td>@Model[i].Code</td>
+        <td>@Model[i].Description</td>
+        <td>@Model[i].StartDate</td>
+        <td><a class="btn btn-warning" href="/Department/Edit?id=@Model[i].Id">Edit</a></td>
+        <td><a class="btn btn-danger" href="/Department/Delete?id=@Model[i].Id">Delete</a></td>
+      </tr>
+    }
+  </tbody>
+</table>
